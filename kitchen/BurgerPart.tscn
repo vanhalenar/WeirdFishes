@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://kitchen/BurgerPart.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.7
+bounce = 0.2
+absorbent = true
+
+[node name="Part" type="RigidBody2D"]
+input_pickable = true
+mass = 20.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 20.0
+contacts_reported = 10
+contact_monitor = true
+script = ExtResource( 1 )
+my_value = 100
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 8, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 28 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+[connection signal="body_entered" from="." to="." method="_on_Part_body_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

@@ -1,0 +1,1696 @@
+[gd_scene load_steps=56 format=2]
+
+[ext_resource path="res://pixelmix.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/ScaledUI/uibox.png" type="Texture" id=2]
+[ext_resource path="res://assets/ScaledUI/uininepatch.png" type="Texture" id=3]
+[ext_resource path="res://assets/ScaledUI/cardninepatch.png" type="Texture" id=4]
+[ext_resource path="res://assets/ScaledUI/cardbackground.png" type="Texture" id=5]
+[ext_resource path="res://assets/ScaledUI/cardbox.png" type="Texture" id=6]
+[ext_resource path="res://assets/ScaledUI/innercardninepatch.png" type="Texture" id=7]
+[ext_resource path="res://assets/fishes/georgie.png" type="Texture" id=8]
+[ext_resource path="res://assets/ScaledUI/cardbox2.png" type="Texture" id=9]
+[ext_resource path="res://assets/ScaledUI/bookbutton.png" type="Texture" id=10]
+[ext_resource path="res://UI.gd" type="Script" id=11]
+[ext_resource path="res://uiscripts/FishBookButton.gd" type="Script" id=12]
+[ext_resource path="res://assets/ScaledUI/cardshadowninepatch.png" type="Texture" id=13]
+[ext_resource path="res://assets/ScaledUI/shopui.png" type="Texture" id=14]
+[ext_resource path="res://scrollbar.tres" type="Theme" id=15]
+[ext_resource path="res://assets/ScaledUI/basebutton.png" type="Texture" id=16]
+[ext_resource path="res://assets/decorations/snakeplant/0.png" type="Texture" id=17]
+[ext_resource path="res://assets/decorations/portraits/plantportraits/snakeplantportrait.png" type="Texture" id=18]
+[ext_resource path="res://assets/decorations/portraits/plantportraits/twoleavesportrait.png" type="Texture" id=19]
+[ext_resource path="res://assets/decorations/portraits/plantportraits/redthingportrait.png" type="Texture" id=20]
+[ext_resource path="res://uiscripts/ShopItemButton.gd" type="Script" id=21]
+[ext_resource path="res://assets/ScaledUI/arrow.png" type="Texture" id=22]
+[ext_resource path="res://assets/decorations/snakeplant/1.png" type="Texture" id=23]
+[ext_resource path="res://assets/decorations/snakeplant/2.png" type="Texture" id=24]
+[ext_resource path="res://assets/ScaledUI/shopbutton.png" type="Texture" id=25]
+[ext_resource path="res://assets/ScaledUI/shopbackgroundsbutton.png" type="Texture" id=26]
+[ext_resource path="res://assets/ScaledUI/shophatsbutton.png" type="Texture" id=27]
+[ext_resource path="res://assets/ScaledUI/shopplantsbutton.png" type="Texture" id=28]
+[ext_resource path="res://assets/ScaledUI/shoprocksbutton.png" type="Texture" id=29]
+[ext_resource path="res://assets/decorations/portraits/hatportraits/beanieportrait.png" type="Texture" id=30]
+[ext_resource path="res://assets/decorations/portraits/hatportraits/tophatportrait.png" type="Texture" id=31]
+[ext_resource path="res://assets/decorations/portraits/hatportraits/beetportrait.png" type="Texture" id=32]
+[ext_resource path="res://uiscripts/ShopHatButton.gd" type="Script" id=33]
+[ext_resource path="res://assets/ScaledUI/shophatdisplay.png" type="Texture" id=34]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( -4, -4, 136, 136 )
+margin_left = 40.0
+margin_right = 36.0
+margin_top = 36.0
+margin_bottom = 36.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 4 )
+region_rect = Rect2( -4, -4, 136, 136 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 72, 72 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 72, 72 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 816, 400 )
+margin_left = 60.0
+margin_right = 60.0
+margin_top = 128.0
+margin_bottom = 40.0
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 34 )
+region_rect = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="DynamicFont" id=19]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "BUY"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BuyLabel:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.7, 0.7 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BuyLabel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="DynamicFont" id=27]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[node name="UI" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -641.0
+margin_top = -360.0
+margin_right = 639.0
+margin_bottom = 360.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -423.0
+margin_top = -275.0
+margin_right = 423.0
+margin_bottom = 275.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+margin_left = 32.0
+margin_top = 51.0
+margin_right = 813.0
+margin_bottom = 499.0
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
+margin_right = 521.0
+margin_bottom = 448.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2"]
+margin_left = 40.0
+margin_top = 36.0
+margin_right = 485.0
+margin_bottom = 412.0
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+margin_right = 445.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+text = "fish book"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+margin_top = 80.0
+margin_right = 445.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 445, 296 )
+theme = ExtResource( 15 )
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer"]
+margin_right = 416.0
+margin_bottom = 398.0
+rect_min_size = Vector2( 416, 296 )
+custom_constants/vseparation = 10
+custom_constants/hseparation = 14
+columns = 5
+
+[node name="Oddie" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_right = 72.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Oddie"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Oddie"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Robert" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 86.0
+margin_right = 158.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Robert"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Robert"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Jeremy" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 172.0
+margin_right = 244.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jeremy"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jeremy"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Ron" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 258.0
+margin_right = 330.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Ron"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Ron"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Helena" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 344.0
+margin_right = 416.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Helena"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Helena"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Roger" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_top = 102.0
+margin_right = 72.0
+margin_bottom = 194.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Roger"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Roger"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Jazz" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 86.0
+margin_top = 102.0
+margin_right = 158.0
+margin_bottom = 194.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jazz"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jazz"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 172.0
+margin_top = 102.0
+margin_right = 244.0
+margin_bottom = 194.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 258.0
+margin_top = 102.0
+margin_right = 330.0
+margin_bottom = 194.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish2"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish2"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish3" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 344.0
+margin_top = 102.0
+margin_right = 416.0
+margin_bottom = 194.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish3"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish3"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish4" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_top = 204.0
+margin_right = 72.0
+margin_bottom = 296.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish4"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish4"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish5" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 86.0
+margin_top = 204.0
+margin_right = 158.0
+margin_bottom = 296.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish5"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish5"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish6" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 172.0
+margin_top = 204.0
+margin_right = 244.0
+margin_bottom = 296.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish6"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish6"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish7" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 258.0
+margin_top = 204.0
+margin_right = 330.0
+margin_bottom = 296.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish7"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish7"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish8" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 344.0
+margin_top = 204.0
+margin_right = 416.0
+margin_bottom = 296.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish8"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish8"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish9" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_top = 306.0
+margin_right = 72.0
+margin_bottom = 398.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish9"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish9"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish10" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 86.0
+margin_top = 306.0
+margin_right = 158.0
+margin_bottom = 398.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish10"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish10"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish11" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 172.0
+margin_top = 306.0
+margin_right = 244.0
+margin_bottom = 398.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish11"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish11"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish12" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 258.0
+margin_top = 306.0
+margin_right = 330.0
+margin_bottom = 398.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish12"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish12"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="Fish13" type="VBoxContainer" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 344.0
+margin_top = 306.0
+margin_right = 416.0
+margin_bottom = 398.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish13"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish13"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/HBoxContainer"]
+margin_left = 525.0
+margin_right = 781.0
+margin_bottom = 448.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/HBoxContainer/CenterContainer"]
+margin_top = 25.0
+margin_right = 256.0
+margin_bottom = 423.0
+rect_min_size = Vector2( 256, 398 )
+texture = ExtResource( 13 )
+region_rect = Rect2( -4, -4, 136, 136 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/HBoxContainer/CenterContainer"]
+margin_top = 25.0
+margin_right = 256.0
+margin_bottom = 423.0
+rect_min_size = Vector2( 256, 398 )
+custom_styles/panel = SubResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 236.0
+margin_bottom = 378.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 236.0
+margin_bottom = 378.0
+texture = ExtResource( 7 )
+region_rect = Rect2( 16, 16, 96, 96 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 236.0
+margin_bottom = 378.0
+
+[node name="Spacer" type="Panel" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2"]
+margin_right = 216.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2"]
+margin_top = 4.0
+margin_right = 216.0
+margin_bottom = 350.0
+custom_constants/separation = 16
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2/VBoxContainer"]
+margin_right = 216.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 5 )
+text = "fish"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 48.0
+margin_right = 216.0
+margin_bottom = 180.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2/VBoxContainer/CenterContainer"]
+margin_left = 8.0
+margin_right = 208.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 200, 132 )
+custom_styles/panel = SubResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2/VBoxContainer/CenterContainer"]
+visible = false
+margin_left = 42.0
+margin_right = 174.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 132, 132 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 196.0
+margin_right = 216.0
+margin_bottom = 346.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2/VBoxContainer/CenterContainer2"]
+margin_left = 8.0
+margin_right = 208.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 200, 150 )
+custom_styles/panel = SubResource( 7 )
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer2/VBoxContainer/CenterContainer2/PanelContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 192.0
+margin_bottom = 142.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 8 )
+text = "how the fuck do the margins work i dont understand godot ui"
+autowrap = true
+clip_text = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 21.0
+margin_top = 20.0
+margin_right = 121.0
+margin_bottom = 240.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BookButton" type="TextureButton" parent="VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 10 )
+
+[node name="ShopButton" type="TextureButton" parent="VBoxContainer"]
+margin_top = 120.0
+margin_right = 100.0
+margin_bottom = 220.0
+texture_normal = ExtResource( 25 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -501.0
+margin_top = -254.0
+margin_right = 501.0
+margin_bottom = 254.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2"]
+margin_left = 4.0
+margin_right = 998.0
+margin_bottom = 516.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 516.0
+alignment = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 80.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+custom_styles/panel = SubResource( 25 )
+
+[node name="PlantButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 80.0
+margin_bottom = 204.0
+size_flags_vertical = 2
+texture_normal = ExtResource( 28 )
+
+[node name="TextureButton2" type="TextureButton" parent="CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 223.0
+margin_right = 80.0
+margin_bottom = 303.0
+size_flags_vertical = 2
+texture_normal = ExtResource( 29 )
+
+[node name="TextureButton3" type="TextureButton" parent="CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 322.0
+margin_right = 80.0
+margin_bottom = 402.0
+size_flags_vertical = 2
+texture_normal = ExtResource( 26 )
+
+[node name="HatButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 421.0
+margin_right = 80.0
+margin_bottom = 501.0
+size_flags_vertical = 2
+texture_normal = ExtResource( 27 )
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer2/HBoxContainer"]
+margin_left = 84.0
+margin_right = 910.0
+margin_bottom = 516.0
+rect_min_size = Vector2( 812, 516 )
+custom_styles/panel = SubResource( 15 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer"]
+margin_left = 60.0
+margin_top = 128.0
+margin_right = 766.0
+margin_bottom = 476.0
+
+[node name="Spacer" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 706.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+custom_styles/panel = SubResource( 17 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 14.0
+margin_right = 706.0
+margin_bottom = 334.0
+
+[node name="Spacer" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 7.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 7, 0 )
+custom_styles/panel = SubResource( 17 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 11.0
+margin_right = 426.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 415, 320 )
+theme = ExtResource( 15 )
+scroll_horizontal_enabled = false
+
+[node name="PlantContainer" type="GridContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+margin_right = 396.0
+margin_bottom = 423.0
+custom_constants/vseparation = 12
+custom_constants/hseparation = 36
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_right = 72.0
+margin_bottom = 111.0
+
+[node name="Snakeplant" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 18 )
+script = ExtResource( 21 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 16 )
+text = "snake-
+plant"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 108.0
+margin_right = 180.0
+margin_bottom = 111.0
+
+[node name="Redthing" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer2"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 20 )
+script = ExtResource( 21 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer2"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 16 )
+text = "red
+thing"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 216.0
+margin_right = 288.0
+margin_bottom = 111.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer3"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 19 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer3"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 16 )
+text = "two
+leaves"
+align = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 324.0
+margin_right = 396.0
+margin_bottom = 111.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer4"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer4"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_top = 123.0
+margin_right = 72.0
+margin_bottom = 215.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer5"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer5"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 108.0
+margin_top = 123.0
+margin_right = 180.0
+margin_bottom = 215.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer6"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer6"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 216.0
+margin_top = 123.0
+margin_right = 288.0
+margin_bottom = 215.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer7"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer7"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 324.0
+margin_top = 123.0
+margin_right = 396.0
+margin_bottom = 215.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer8"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer8"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_top = 227.0
+margin_right = 72.0
+margin_bottom = 319.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer9"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer9"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer10" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 108.0
+margin_top = 227.0
+margin_right = 180.0
+margin_bottom = 319.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer10"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer10"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer11" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 216.0
+margin_top = 227.0
+margin_right = 288.0
+margin_bottom = 319.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer11"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer11"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer12" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 324.0
+margin_top = 227.0
+margin_right = 396.0
+margin_bottom = 319.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer12"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer12"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer13" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_top = 331.0
+margin_right = 72.0
+margin_bottom = 423.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer13"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer13"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer14" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 108.0
+margin_top = 331.0
+margin_right = 180.0
+margin_bottom = 423.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer14"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer14"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer15" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 216.0
+margin_top = 331.0
+margin_right = 288.0
+margin_bottom = 423.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer15"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer15"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer16" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer"]
+margin_left = 324.0
+margin_top = 331.0
+margin_right = 396.0
+margin_bottom = 423.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer16"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer16"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="HatContainer" type="GridContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+visible = false
+margin_right = 396.0
+margin_bottom = 404.0
+custom_constants/vseparation = 12
+custom_constants/hseparation = 36
+columns = 4
+
+[node name="VBoxContainer17" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_right = 72.0
+margin_bottom = 92.0
+
+[node name="beanie" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer17"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 30 )
+script = ExtResource( 33 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer17"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "beanie"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 108.0
+margin_right = 180.0
+margin_bottom = 92.0
+
+[node name="tophat" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer5"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 31 )
+script = ExtResource( 33 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer5"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "tophat"
+align = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 108.0
+margin_right = 180.0
+margin_bottom = 92.0
+
+[node name="beet" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer6"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 32 )
+script = ExtResource( 33 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer6"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "beet"
+align = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 324.0
+margin_right = 396.0
+margin_bottom = 92.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer7"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer7"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_top = 104.0
+margin_right = 72.0
+margin_bottom = 196.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer8"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer8"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 108.0
+margin_top = 104.0
+margin_right = 180.0
+margin_bottom = 196.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer9"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer9"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer10" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 216.0
+margin_top = 104.0
+margin_right = 288.0
+margin_bottom = 196.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer10"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer10"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer11" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 324.0
+margin_top = 104.0
+margin_right = 396.0
+margin_bottom = 196.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer11"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer11"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer12" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_top = 208.0
+margin_right = 72.0
+margin_bottom = 300.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer12"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer12"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer13" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 108.0
+margin_top = 208.0
+margin_right = 180.0
+margin_bottom = 300.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer13"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer13"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer14" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 216.0
+margin_top = 208.0
+margin_right = 288.0
+margin_bottom = 300.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer14"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer14"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer15" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_left = 324.0
+margin_top = 208.0
+margin_right = 396.0
+margin_bottom = 300.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer15"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer15"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="VBoxContainer16" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer"]
+margin_top = 312.0
+margin_right = 72.0
+margin_bottom = 404.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer16"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer16"]
+margin_top = 76.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 16 )
+text = "item"
+align = 1
+
+[node name="Spacer2" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 430.0
+margin_right = 437.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 7, 0 )
+custom_styles/panel = SubResource( 17 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 441.0
+margin_right = 697.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+margin_right = 256.0
+margin_bottom = 320.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 256, 256 )
+custom_styles/panel = SubResource( 18 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer"]
+margin_right = 256.0
+margin_bottom = 256.0
+
+[node name="Spacer" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+custom_styles/panel = SubResource( 20 )
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 14.0
+margin_right = 256.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 19 )
+text = "snakeplant"
+align = 1
+
+[node name="BuyLabel" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 256.0
+margin_bottom = 82.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 128, 16 )
+mouse_filter = 0
+custom_fonts/font = SubResource( 19 )
+text = "100$"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+autoplay = "BUY"
+anims/BUY = SubResource( 21 )
+anims/RESET = SubResource( 22 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 256.0
+margin_bottom = 256.0
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="Spacer" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 8, 0 )
+custom_styles/panel = SubResource( 23 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 8.0
+margin_right = 248.0
+margin_bottom = 170.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer2" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+margin_right = 8.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 8, 0 )
+custom_styles/panel = SubResource( 23 )
+
+[node name="Tween" type="Tween" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+
+[node name="Sprite0" type="Sprite" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+position = Vector2( 120, 84 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 17 )
+
+[node name="Sprite1" type="Sprite" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+position = Vector2( -114, 84 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 23 )
+
+[node name="Sprite2" type="Sprite" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+position = Vector2( -114, 84 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 24 )
+
+[node name="Left" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+margin_left = 12.0
+margin_top = 65.0
+margin_right = 32.0
+margin_bottom = 105.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 22 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+margin_left = 36.0
+margin_right = 228.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Right" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2/HBoxContainer"]
+margin_left = 172.0
+margin_top = 65.0
+margin_right = 192.0
+margin_bottom = 105.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 22 )
+flip_h = true
+
+[node name="Spacer" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+margin_left = 232.0
+margin_right = 240.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 8, 0 )
+custom_styles/panel = SubResource( 23 )
+
+[node name="SpacerContainer" type="HBoxContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 248.0
+margin_right = 256.0
+margin_bottom = 170.0
+alignment = 2
+
+[node name="Spacer" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/SpacerContainer"]
+margin_right = 8.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 8, 0 )
+custom_styles/panel = SubResource( 24 )
+
+[node name="BuyButton" type="TextureButton" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 260.0
+margin_right = 256.0
+margin_bottom = 320.0
+texture_normal = ExtResource( 16 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/BuyButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -20.0
+margin_right = 96.0
+margin_bottom = 20.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/BuyButton/CenterContainer"]
+margin_left = 48.0
+margin_top = 4.0
+margin_right = 144.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 27 )
+text = "buy!!!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer3" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 701.0
+margin_right = 706.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 5, 0 )
+custom_styles/panel = SubResource( 17 )
+
+[node name="Spacer2" type="Panel" parent="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 338.0
+margin_right = 706.0
+margin_bottom = 348.0
+rect_min_size = Vector2( 0, 10 )
+custom_styles/panel = SubResource( 17 )
+
+[node name="Panel2" type="Panel" parent="CenterContainer2/HBoxContainer"]
+margin_left = 914.0
+margin_right = 994.0
+margin_bottom = 516.0
+rect_min_size = Vector2( 80, 0 )
+custom_styles/panel = SubResource( 26 )
+
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Oddie/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Oddie/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Oddie/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Robert/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Robert/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Robert/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jeremy/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jeremy/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jeremy/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Ron/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Ron/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Ron/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Helena/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Helena/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Helena/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Roger/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Roger/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Roger/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jazz/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jazz/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Jazz/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish2/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish2/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish2/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish3/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish3/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish3/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish4/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish4/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish4/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish5/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish5/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish5/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish6/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish6/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish6/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish7/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish7/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish7/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish8/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish8/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish8/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish9/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish9/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish9/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish10/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish10/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish10/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish11/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish11/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish11/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish12/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish12/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish12/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="Clicked_Fish" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish13/TextureButton" to="." method="_on_Clicked_Fish"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish13/TextureButton" to="CenterContainer/HBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/GridContainer/Fish13/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/BookButton" to="." method="_on_BookButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ShopButton" to="." method="_on_ShopButton_pressed"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/VBoxContainer/PlantButton" to="." method="_on_PlantButton_pressed"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/VBoxContainer/HatButton" to="." method="_on_HatButton_pressed"]
+[connection signal="Clicked_Item" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer/Snakeplant" to="." method="_on_Clicked_Item"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer/Snakeplant" to="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer/Snakeplant" method="_on_item_pressed"]
+[connection signal="Clicked_Item" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer2/Redthing" to="." method="_on_Clicked_Item"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer2/Redthing" to="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/PlantContainer/VBoxContainer2/Redthing" method="_on_item_pressed"]
+[connection signal="Clicked_Hat" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer17/beanie" to="." method="_on_Clicked_Hat"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer17/beanie" to="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer17/beanie" method="_on_HatButton_pressed"]
+[connection signal="Clicked_Hat" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer5/tophat" to="." method="_on_Clicked_Hat"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer5/tophat" to="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer5/tophat" method="_on_HatButton_pressed"]
+[connection signal="Clicked_Hat" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer6/beet" to="." method="_on_Clicked_Hat"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer6/beet" to="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/HatContainer/VBoxContainer6/beet" method="_on_HatButton_pressed"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer2/HBoxContainer/Right" to="." method="_on_Right_pressed"]
+[connection signal="pressed" from="CenterContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/BuyButton" to="." method="_on_BuyButton_pressed"]

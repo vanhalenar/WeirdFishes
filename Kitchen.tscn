@@ -1,0 +1,190 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/kitchen/scaled/kitchenbackground.png" type="Texture" id=1]
+[ext_resource path="res://kitchen/BottomBun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/kitchen/scaled/icons/buns/burgertopbunicon.png" type="Texture" id=3]
+[ext_resource path="res://pixelmix.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://kitchen/Kitchen.gd" type="Script" id=7]
+[ext_resource path="res://assets/kitchen/scaled/linepaper.png" type="Texture" id=8]
+[ext_resource path="res://assets/kitchen/scaled/icons/ingredients/burgerpattyicon.png" type="Texture" id=9]
+[ext_resource path="res://assets/kitchen/scaled/icons/ingredients/burgercheeseicon.png" type="Texture" id=10]
+[ext_resource path="res://assets/kitchen/scaled/icons/buns/burgerbottombunicon.png" type="Texture" id=11]
+[ext_resource path="res://kitchen/Cheese.tscn" type="PackedScene" id=12]
+[ext_resource path="res://kitchen/Patty.tscn" type="PackedScene" id=13]
+[ext_resource path="res://kitchen/TopBun.tscn" type="PackedScene" id=14]
+[ext_resource path="res://kitchen/RecipeContainer.gd" type="Script" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 51.75, 1033 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1496, 65.5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 4 )
+
+[node name="Kitchen" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+stretch_mode = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PartButtons" type="Node2D" parent="."]
+
+[node name="Cheese" parent="PartButtons" instance=ExtResource( 12 )]
+position = Vector2( 194, 577 )
+contacts_reported = 0
+contact_monitor = false
+
+[node name="Patty" parent="PartButtons" instance=ExtResource( 13 )]
+position = Vector2( 194, 364 )
+contacts_reported = 0
+contact_monitor = false
+
+[node name="TopBun" parent="PartButtons" instance=ExtResource( 14 )]
+position = Vector2( 194, 121 )
+contacts_reported = 0
+contact_monitor = false
+
+[node name="RecipeCard" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -266.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = -107.0
+texture = ExtResource( 8 )
+patch_margin_left = 52
+patch_margin_top = 40
+patch_margin_right = 52
+patch_margin_bottom = 40
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecipeContainer" type="VBoxContainer" parent="RecipeCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -56.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopBun" type="TextureRect" parent="RecipeCard/RecipeContainer"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 78.0
+margin_right = 158.0
+margin_bottom = 80.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 3 )
+
+[node name="Ingredient1" type="TextureRect" parent="RecipeCard/RecipeContainer"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 78.0
+margin_top = 84.0
+margin_right = 158.0
+margin_bottom = 164.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 9 )
+
+[node name="Ingredient2" type="TextureRect" parent="RecipeCard/RecipeContainer"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 78.0
+margin_top = 168.0
+margin_right = 158.0
+margin_bottom = 248.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 9 )
+
+[node name="Ingredient3" type="TextureRect" parent="RecipeCard/RecipeContainer"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 78.0
+margin_top = 252.0
+margin_right = 158.0
+margin_bottom = 332.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 10 )
+
+[node name="Ingredient4" type="TextureRect" parent="RecipeCard/RecipeContainer"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 78.0
+margin_top = 336.0
+margin_right = 158.0
+margin_bottom = 416.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 9 )
+
+[node name="Ingredient5" type="TextureRect" parent="RecipeCard/RecipeContainer"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 78.0
+margin_top = 420.0
+margin_right = 158.0
+margin_bottom = 500.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 9 )
+
+[node name="BottomBun" type="TextureRect" parent="RecipeCard/RecipeContainer"]
+margin_left = 78.0
+margin_top = 504.0
+margin_right = 158.0
+margin_bottom = 584.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 11 )
+
+[node name="BurgerParts" type="Node2D" parent="."]
+
+[node name="BottomBun" parent="BurgerParts" instance=ExtResource( 2 )]
+position = Vector2( 686, 573 )
+my_value = 0
+
+[node name="Bounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( -805.25, 309 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( 2102, 310 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( 669, -662 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( 644, 1288 )
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -172.0
+margin_top = 20.0
+margin_right = 172.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+text = "Score: 0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="tree_changed" from="." to="RecipeCard/RecipeContainer" method="_on_Kitchen_tree_changed"]
+[connection signal="body_entered" from="Bounds" to="." method="_on_Bounds_body_entered"]

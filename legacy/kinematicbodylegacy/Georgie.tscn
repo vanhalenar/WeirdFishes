@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fishes/georgie.png" type="Texture" id=1]
+[ext_resource path="res://legacy/kinematicbodylegacy/fish.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.039, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.036, 0.95 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.99998
+height = 16.0
+
+[node name="Georgie" instance=ExtResource( 2 )]
+ACCELERATION = 2000
+MAX_SPEED = 600
+FRICTION = 160
+swim_time_to = 3.0
+
+[node name="Particles2D" parent="." index="0"]
+amount = 7
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 1 )
+
+[node name="Label" parent="." index="3"]
+text = "georgie"
+
+[node name="AnimationPlayer" parent="." index="4"]
+anims/Idle = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="5"]
+visible = false
+shape = SubResource( 1 )

@@ -1,0 +1,2630 @@
+[gd_scene load_steps=46 format=2]
+
+[ext_resource path="res://legacy/kinematicbodylegacy/Georgie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/decorations/portraits/hatportraits/beanieportrait.png" type="Texture" id=3]
+[ext_resource path="res://Aquarium.gd" type="Script" id=4]
+[ext_resource path="res://assets/decorations/portraits/hatportraits/beetportrait.png" type="Texture" id=5]
+[ext_resource path="res://fishscenes/Jazz.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pixelmix.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://uiscripts/IconButton.gd" type="Script" id=8]
+[ext_resource path="res://assets/decorations/portraits/hatportraits/tophatportrait.png" type="Texture" id=9]
+[ext_resource path="res://assets/uibox2.png" type="Texture" id=10]
+[ext_resource path="res://assets/uininepatch.png" type="Texture" id=11]
+[ext_resource path="res://new_theme.tres" type="Theme" id=12]
+[ext_resource path="res://assets/bookbutton.png" type="Texture" id=13]
+[ext_resource path="res://assets/shopbutton.png" type="Texture" id=14]
+[ext_resource path="res://assets/cardninepatch.png" type="Texture" id=15]
+[ext_resource path="res://assets/pricetag.png" type="Texture" id=16]
+[ext_resource path="res://UserInterface.gd" type="Script" id=17]
+[ext_resource path="res://legacy/kinematicbodylegacy/Helena.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/buybutton.png" type="Texture" id=19]
+[ext_resource path="res://assets/shophatsbutton.png" type="Texture" id=20]
+[ext_resource path="res://assets/shoprocksbutton.png" type="Texture" id=21]
+[ext_resource path="res://assets/shopplantsbutton.png" type="Texture" id=22]
+[ext_resource path="res://assets/shopbackgroundsbutton.png" type="Texture" id=23]
+[ext_resource path="res://uiscripts/ShopButton.gd" type="Script" id=24]
+[ext_resource path="res://assets/decorations/portraits/rock1portrait.png" type="Texture" id=25]
+[ext_resource path="res://assets/decorations/portraits/snakeplantportrait.png" type="Texture" id=26]
+[ext_resource path="res://assets/decorations/portraits/rock3portrait.png" type="Texture" id=27]
+[ext_resource path="res://assets/decorations/portraits/redthingportrait.png" type="Texture" id=28]
+[ext_resource path="res://assets/decorations/portraits/twoleavesportrait.png" type="Texture" id=29]
+[ext_resource path="res://assets/decorations/portraits/rock2portrait.png" type="Texture" id=30]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 640, 59 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Shake"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 10.1965, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 3.0, -3.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "Shake"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 10.1965, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 3.0, -3.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=16]
+size = 8
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 8
+font_data = ExtResource( 7 )
+
+[node name="Aquarium" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 320.0
+margin_bottom = 180.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( -1, 0 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( 640, -23 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( 1310, 371 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( -19, 363 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( 640, 745 )
+shape = SubResource( 1 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Jazz" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 321, 250 )
+
+[node name="Georgie" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 572, 260 )
+scale = Vector2( 4, 4 )
+
+[node name="UserInterface" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FishBook" type="Control" parent="UserInterface"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 620.0
+margin_top = 1000.0
+margin_right = 620.0
+margin_bottom = 980.0
+rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="UserInterface/FishBook"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -68.0
+margin_right = 160.0
+margin_bottom = 90.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FishBookNinePatchRect" type="NinePatchRect" parent="UserInterface/FishBook"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.75
+margin_top = -56.0
+margin_right = 20.25
+margin_bottom = 55.0
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 33, 33 )
+patch_margin_left = 7
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/FishBookNinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.25
+margin_top = -49.75
+margin_right = 64.75
+margin_bottom = -26.75
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 3 )
+text = "fish book"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UserInterface/FishBook"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.75
+margin_top = -32.0
+margin_right = 12.25
+margin_bottom = 49.0
+theme = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="UserInterface/FishBook/ScrollContainer"]
+margin_right = 106.0
+margin_bottom = 108.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Oddie" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_right = 18.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/Oddie"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 26.0
+margin_bottom = 3.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Robert" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 22.0
+margin_right = 40.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/Robert"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 26.0
+margin_bottom = 3.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jeremy" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 44.0
+margin_right = 62.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/Jeremy"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 26.0
+margin_bottom = 3.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Georgie" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 66.0
+margin_right = 84.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/Georgie"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 26.0
+margin_bottom = 3.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ron" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 88.0
+margin_right = 106.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/Ron"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 26.0
+margin_bottom = 3.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Helena" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_top = 28.0
+margin_right = 18.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/Helena"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 26.0
+margin_bottom = 3.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yggdrasil" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 22.0
+margin_top = 28.0
+margin_right = 40.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/Yggdrasil"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 26.0
+margin_bottom = 3.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton8" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 44.0
+margin_top = 28.0
+margin_right = 62.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton8"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton9" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 66.0
+margin_top = 28.0
+margin_right = 84.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton9"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton10" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 88.0
+margin_top = 28.0
+margin_right = 106.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton10"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton11" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_top = 56.0
+margin_right = 18.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton11"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton12" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 22.0
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton12"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton13" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 44.0
+margin_top = 56.0
+margin_right = 62.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton13"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton14" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 66.0
+margin_top = 56.0
+margin_right = 84.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton14"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton15" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 88.0
+margin_top = 56.0
+margin_right = 106.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton15"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton16" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_top = 84.0
+margin_right = 18.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton16"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton17" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 22.0
+margin_top = 84.0
+margin_right = 40.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton17"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton18" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 44.0
+margin_top = 84.0
+margin_right = 62.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton18"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton19" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 66.0
+margin_top = 84.0
+margin_right = 84.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton19"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton20" type="TextureButton" parent="UserInterface/FishBook/ScrollContainer/GridContainer"]
+margin_left = 88.0
+margin_top = 84.0
+margin_right = 106.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/FishBook/ScrollContainer/GridContainer/TextureButton20"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardNinePatchRect" type="NinePatchRect" parent="UserInterface/FishBook"]
+margin_left = 25.25
+margin_top = -56.0
+margin_right = 101.25
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 38, 55 )
+texture = ExtResource( 15 )
+region_rect = Rect2( -1, -1, 34, 34 )
+patch_margin_left = 9
+patch_margin_top = 10
+patch_margin_right = 9
+patch_margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="UserInterface/FishBook/CardNinePatchRect"]
+margin_left = 4.0
+margin_top = 5.0
+margin_right = 89.0
+margin_bottom = 23.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 5 )
+text = "fish"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="UserInterface/FishBook/CardNinePatchRect"]
+margin_left = 5.0
+margin_top = 60.0
+margin_right = 114.0
+margin_bottom = 90.0
+rect_scale = Vector2( 0.6, 0.6 )
+custom_fonts/font = SubResource( 6 )
+text = "click a fish
+bitch"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/FishBook/CardNinePatchRect"]
+anims/Shake = SubResource( 8 )
+
+[node name="BookShopButtons" type="VBoxContainer" parent="UserInterface"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BookButton" type="TextureButton" parent="UserInterface/BookShopButtons"]
+margin_right = 25.0
+margin_bottom = 25.0
+toggle_mode = true
+texture_normal = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="UserInterface/BookShopButtons/BookButton"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 18.8333
+margin_top = -8.83333
+margin_right = 64.8333
+margin_bottom = 9.16667
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 4 )
+text = "book"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopButton" type="TextureButton" parent="UserInterface/BookShopButtons"]
+margin_top = 29.0
+margin_right = 25.0
+margin_bottom = 54.0
+toggle_mode = true
+texture_normal = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="UserInterface/BookShopButtons/ShopButton"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 19.1667
+margin_top = -10.5
+margin_right = 65.1667
+margin_bottom = 7.5
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 4 )
+text = "shop"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="UserInterface"]
+
+[node name="Shop" type="Control" parent="UserInterface"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 640.0
+margin_top = 1000.0
+margin_right = 640.0
+margin_bottom = 1000.0
+rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopNinePatchRect" type="NinePatchRect" parent="UserInterface/Shop"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.75
+margin_top = -56.0
+margin_right = 20.25
+margin_bottom = 55.0
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 33, 33 )
+patch_margin_left = 7
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UserInterface/Shop/ShopNinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.25
+margin_top = -49.75
+margin_right = 64.75
+margin_bottom = -26.75
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 3 )
+text = "plants"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlantsContainer" type="ScrollContainer" parent="UserInterface/Shop"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.75
+margin_top = -32.0
+margin_right = 12.25
+margin_bottom = 49.0
+theme = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlantsGrid" type="GridContainer" parent="UserInterface/Shop/PlantsContainer"]
+margin_right = 106.0
+margin_bottom = 108.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Snakeplant" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_right = 18.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 26 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/Snakeplant"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -6.0
+margin_right = 26.0
+margin_bottom = 13.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "snake
+plant"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Redthing" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_right = 40.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 28 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/Redthing"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -6.0
+margin_right = 26.0
+margin_bottom = 13.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "red
+thing"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Twoleaves" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_right = 62.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 29 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/Twoleaves"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -6.5
+margin_right = 26.0
+margin_bottom = 12.5
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "two
+leaves"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton4" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_right = 84.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton5" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_right = 106.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton5"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton6" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_top = 28.0
+margin_right = 18.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton6"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton7" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_top = 28.0
+margin_right = 40.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton7"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton8" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_top = 28.0
+margin_right = 62.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton8"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton9" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_top = 28.0
+margin_right = 84.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton9"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton10" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_top = 28.0
+margin_right = 106.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton10"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton11" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_top = 56.0
+margin_right = 18.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton11"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton12" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton12"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton13" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_top = 56.0
+margin_right = 62.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton13"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton14" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_top = 56.0
+margin_right = 84.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton14"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton15" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_top = 56.0
+margin_right = 106.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton15"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton16" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_top = 84.0
+margin_right = 18.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton16"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton17" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_top = 84.0
+margin_right = 40.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton17"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton18" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_top = 84.0
+margin_right = 62.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton18"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton19" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_top = 84.0
+margin_right = 84.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton19"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton20" type="TextureButton" parent="UserInterface/Shop/PlantsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_top = 84.0
+margin_right = 106.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/PlantsContainer/PlantsGrid/TextureButton20"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HatsContainer" type="ScrollContainer" parent="UserInterface/Shop"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.75
+margin_top = -32.0
+margin_right = 12.25
+margin_bottom = 49.0
+theme = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlantsGrid" type="GridContainer" parent="UserInterface/Shop/HatsContainer"]
+margin_right = 106.0
+margin_bottom = 108.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Beanie" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_right = 18.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 3 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/Beanie"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.5
+margin_top = -6.0
+margin_right = 26.5
+margin_bottom = 13.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "beanie"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tophat" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_right = 40.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 9 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/Tophat"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.5
+margin_top = -6.0
+margin_right = 27.5
+margin_bottom = 13.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "tophat"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Beet" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_right = 62.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/Beet"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.5
+margin_top = -6.5
+margin_right = 26.5
+margin_bottom = 12.5
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "beet"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton4" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_right = 84.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton5" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_right = 106.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton5"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton6" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_top = 28.0
+margin_right = 18.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton6"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton7" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_top = 28.0
+margin_right = 40.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton7"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton8" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_top = 28.0
+margin_right = 62.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton8"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton9" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_top = 28.0
+margin_right = 84.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton9"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton10" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_top = 28.0
+margin_right = 106.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton10"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton11" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_top = 56.0
+margin_right = 18.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton11"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton12" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton12"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton13" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_top = 56.0
+margin_right = 62.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton13"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton14" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_top = 56.0
+margin_right = 84.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton14"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton15" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_top = 56.0
+margin_right = 106.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton15"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton16" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_top = 84.0
+margin_right = 18.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton16"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton17" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 22.0
+margin_top = 84.0
+margin_right = 40.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton17"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton18" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 44.0
+margin_top = 84.0
+margin_right = 62.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton18"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton19" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 66.0
+margin_top = 84.0
+margin_right = 84.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton19"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton20" type="TextureButton" parent="UserInterface/Shop/HatsContainer/PlantsGrid"]
+margin_left = 88.0
+margin_top = 84.0
+margin_right = 106.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/HatsContainer/PlantsGrid/TextureButton20"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RocksContainer" type="ScrollContainer" parent="UserInterface/Shop"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.75
+margin_top = -32.0
+margin_right = 12.25
+margin_bottom = 49.0
+theme = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RocksGrid" type="GridContainer" parent="UserInterface/Shop/RocksContainer"]
+margin_right = 106.0
+margin_bottom = 108.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rock1" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_right = 18.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 25 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/Rock1"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.5
+margin_top = -6.0
+margin_right = 26.5
+margin_bottom = 4.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "rock 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rock2" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 22.0
+margin_right = 40.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 30 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/Rock2"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.5
+margin_top = -6.0
+margin_right = 26.5
+margin_bottom = 4.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "rock 2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rock3" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 44.0
+margin_right = 62.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 27 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/Rock3"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.5
+margin_top = -6.0
+margin_right = 26.5
+margin_bottom = 4.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 2 )
+text = "rock 3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton4" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 66.0
+margin_right = 84.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton5" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 88.0
+margin_right = 106.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton5"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton6" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_top = 28.0
+margin_right = 18.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton6"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton7" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 22.0
+margin_top = 28.0
+margin_right = 40.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton7"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton8" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 44.0
+margin_top = 28.0
+margin_right = 62.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton8"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton9" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 66.0
+margin_top = 28.0
+margin_right = 84.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton9"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton10" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 88.0
+margin_top = 28.0
+margin_right = 106.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton10"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton11" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_top = 56.0
+margin_right = 18.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton11"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton12" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 22.0
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton12"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton13" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 44.0
+margin_top = 56.0
+margin_right = 62.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton13"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton14" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 66.0
+margin_top = 56.0
+margin_right = 84.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton14"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton15" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 88.0
+margin_top = 56.0
+margin_right = 106.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton15"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton16" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_top = 84.0
+margin_right = 18.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton16"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton17" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 22.0
+margin_top = 84.0
+margin_right = 40.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton17"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton18" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 44.0
+margin_top = 84.0
+margin_right = 62.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton18"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton19" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 66.0
+margin_top = 84.0
+margin_right = 84.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton19"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton20" type="TextureButton" parent="UserInterface/Shop/RocksContainer/RocksGrid"]
+margin_left = 88.0
+margin_top = 84.0
+margin_right = 106.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="UserInterface/Shop/RocksContainer/RocksGrid/TextureButton20"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardNinePatchRect" type="NinePatchRect" parent="UserInterface/Shop"]
+margin_left = 25.25
+margin_top = -56.0
+margin_right = 101.25
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 38, 55 )
+texture = ExtResource( 15 )
+region_rect = Rect2( -1, -1, 34, 34 )
+patch_margin_left = 9
+patch_margin_top = 10
+patch_margin_right = 9
+patch_margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="UserInterface/Shop/CardNinePatchRect"]
+margin_top = 5.0
+margin_right = 126.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.6, 0.6 )
+custom_fonts/font = SubResource( 5 )
+text = "plant"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="UserInterface/Shop/CardNinePatchRect"]
+margin_left = 5.0
+margin_top = 60.0
+margin_right = 114.0
+margin_bottom = 90.0
+rect_scale = Vector2( 0.6, 0.6 )
+custom_fonts/font = SubResource( 6 )
+text = "buy sum plants"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/Shop/CardNinePatchRect"]
+anims/Shake = SubResource( 14 )
+
+[node name="PriceTag" type="Sprite" parent="UserInterface/Shop/CardNinePatchRect"]
+position = Vector2( 81.5, 68 )
+texture = ExtResource( 16 )
+
+[node name="PriceLabel" type="Label" parent="UserInterface/Shop/CardNinePatchRect/PriceTag"]
+margin_left = 0.5
+margin_top = -7.0
+margin_right = 18.5
+margin_bottom = 1.0
+rect_rotation = 45.0
+custom_fonts/font = SubResource( 16 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuyButton" type="TextureButton" parent="UserInterface/Shop/CardNinePatchRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -22.0
+margin_right = 12.5
+margin_bottom = -9.0
+rect_min_size = Vector2( 18, 13 )
+texture_normal = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UserInterface/Shop/CardNinePatchRect/BuyButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = -4.5
+margin_right = 9.0
+margin_bottom = 3.5
+custom_fonts/font = SubResource( 15 )
+text = "buy"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UserInterface/Shop/CardNinePatchRect"]
+position = Vector2( 38, 42 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Shop"]
+margin_left = -122.5
+margin_top = -54.75
+margin_right = -102.5
+margin_bottom = 37.25
+custom_constants/separation = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlantsShop" type="TextureButton" parent="UserInterface/Shop/VBoxContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 22 )
+
+[node name="RocksShop" type="TextureButton" parent="UserInterface/Shop/VBoxContainer"]
+margin_top = 29.0
+margin_right = 20.0
+margin_bottom = 49.0
+texture_normal = ExtResource( 21 )
+
+[node name="BackgroundsShop" type="TextureButton" parent="UserInterface/Shop/VBoxContainer"]
+margin_top = 58.0
+margin_right = 20.0
+margin_bottom = 78.0
+texture_normal = ExtResource( 23 )
+
+[node name="HatsShop" type="TextureButton" parent="UserInterface/Shop/VBoxContainer"]
+margin_top = 87.0
+margin_right = 20.0
+margin_bottom = 107.0
+texture_normal = ExtResource( 20 )
+
+[node name="Helena" parent="." instance=ExtResource( 18 )]
+
+[connection signal="bought_item" from="UserInterface" to="." method="_on_UserInterface_bought_item"]
+[connection signal="pressed" from="UserInterface/FishBook/BackButton" to="UserInterface" method="_on_BackButton_pressed"]
+[connection signal="me_pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Oddie" to="UserInterface" method="_on_Fish_me_pressed"]
+[connection signal="pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Oddie" to="UserInterface/FishBook/ScrollContainer/GridContainer/Oddie" method="_on_Icon_Button_pressed"]
+[connection signal="me_pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Robert" to="UserInterface" method="_on_Fish_me_pressed"]
+[connection signal="pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Robert" to="UserInterface/FishBook/ScrollContainer/GridContainer/Robert" method="_on_Icon_Button_pressed"]
+[connection signal="me_pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Jeremy" to="UserInterface" method="_on_Fish_me_pressed"]
+[connection signal="pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Jeremy" to="UserInterface/FishBook/ScrollContainer/GridContainer/Jeremy" method="_on_Icon_Button_pressed"]
+[connection signal="me_pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Georgie" to="UserInterface" method="_on_Fish_me_pressed"]
+[connection signal="pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Georgie" to="UserInterface/FishBook/ScrollContainer/GridContainer/Georgie" method="_on_Icon_Button_pressed"]
+[connection signal="me_pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Ron" to="UserInterface" method="_on_Fish_me_pressed"]
+[connection signal="pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Ron" to="UserInterface/FishBook/ScrollContainer/GridContainer/Ron" method="_on_Icon_Button_pressed"]
+[connection signal="me_pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Helena" to="UserInterface" method="_on_Fish_me_pressed"]
+[connection signal="pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Helena" to="UserInterface/FishBook/ScrollContainer/GridContainer/Helena" method="_on_Icon_Button_pressed"]
+[connection signal="me_pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Yggdrasil" to="UserInterface" method="_on_Fish_me_pressed"]
+[connection signal="pressed" from="UserInterface/FishBook/ScrollContainer/GridContainer/Yggdrasil" to="UserInterface/FishBook/ScrollContainer/GridContainer/Yggdrasil" method="_on_Icon_Button_pressed"]
+[connection signal="toggled" from="UserInterface/BookShopButtons/BookButton" to="UserInterface" method="_on_BookButton_toggled"]
+[connection signal="toggled" from="UserInterface/BookShopButtons/ShopButton" to="UserInterface" method="_on_ShopButton_toggled"]
+[connection signal="pressed" from="UserInterface/Shop/PlantsContainer/PlantsGrid/Snakeplant" to="UserInterface/Shop/PlantsContainer/PlantsGrid/Snakeplant" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/PlantsContainer/PlantsGrid/Snakeplant" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/PlantsContainer/PlantsGrid/Redthing" to="UserInterface/Shop/PlantsContainer/PlantsGrid/Redthing" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/PlantsContainer/PlantsGrid/Redthing" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/PlantsContainer/PlantsGrid/Twoleaves" to="UserInterface/Shop/PlantsContainer/PlantsGrid/Twoleaves" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/PlantsContainer/PlantsGrid/Twoleaves" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/HatsContainer/PlantsGrid/Beanie" to="UserInterface/Shop/HatsContainer/PlantsGrid/Beanie" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/HatsContainer/PlantsGrid/Beanie" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/HatsContainer/PlantsGrid/Tophat" to="UserInterface/Shop/HatsContainer/PlantsGrid/Tophat" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/HatsContainer/PlantsGrid/Tophat" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/HatsContainer/PlantsGrid/Beet" to="UserInterface/Shop/HatsContainer/PlantsGrid/Beet" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/HatsContainer/PlantsGrid/Beet" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/RocksContainer/RocksGrid/Rock1" to="UserInterface/Shop/RocksContainer/RocksGrid/Rock1" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/RocksContainer/RocksGrid/Rock1" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/RocksContainer/RocksGrid/Rock2" to="UserInterface/Shop/RocksContainer/RocksGrid/Rock2" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/RocksContainer/RocksGrid/Rock2" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/RocksContainer/RocksGrid/Rock3" to="UserInterface/Shop/RocksContainer/RocksGrid/Rock3" method="_on_shop_button_pressed"]
+[connection signal="shop_me_pressed" from="UserInterface/Shop/RocksContainer/RocksGrid/Rock3" to="UserInterface" method="_on_shop_me_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/CardNinePatchRect/BuyButton" to="UserInterface" method="_on_BuyButton_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/VBoxContainer/PlantsShop" to="UserInterface" method="_on_PlantsShop_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/VBoxContainer/RocksShop" to="UserInterface" method="_on_RocksShop_pressed"]
+[connection signal="pressed" from="UserInterface/Shop/VBoxContainer/HatsShop" to="UserInterface" method="_on_HatsShop_pressed"]

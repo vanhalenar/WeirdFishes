@@ -1,0 +1,168 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://pixelmix.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fishscenes/scripts/NewFish.gd" type="Script" id=2]
+[ext_resource path="res://assets/bubble.png" type="Texture" id=3]
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 16.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Squash"
+length = 0.7
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 4, -0.2, -0.0280952, 0.2, 0.0280952, 4.59911, -0.2, 0.00118589, 0.2, -0.00118589, 4, -0.4, -0.690109, 0.4, 0.690109 ),
+"times": PoolRealArray( 0, 0.15, 0.6 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 4, -0.2, -0.0323076, 0.2, 0.0323076, 4.60052, -0.2, 0.00118589, 0.2, -0.00118589, 4, -0.4, -0.703067, 0.4, 0.703067 ),
+"times": PoolRealArray( 0, 0.15, 0.6 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "Play_Idle"
+} ]
+}
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 323.0
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 64.0078
+
+[node name="Fish" type="RigidBody2D"]
+input_pickable = true
+mode = 2
+gravity_scale = 0.0
+contacts_reported = 5
+contact_monitor = true
+linear_damp = 2.0
+angular_damp = 100.0
+script = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 1.03747, 0.965773 )
+emitting = false
+amount = 9
+lifetime = 1.5
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 4, 4 )
+
+[node name="Hat" type="Sprite" parent="Sprite"]
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -196.0
+margin_top = -126.0
+margin_right = -98.0
+margin_bottom = -110.0
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = SubResource( 1 )
+text = "fish"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 8 )
+anims/RESET = SubResource( 6 )
+anims/Squash = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 9 )
+
+[node name="HatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HatDetection"]
+shape = SubResource( 10 )
+
+[connection signal="body_entered" from="." to="." method="_on_Fish_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_Fish_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="HatDetection" to="." method="_on_HatDetection_area_exited"]

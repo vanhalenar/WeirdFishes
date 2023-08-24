@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://ItemStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "rock 3"
+description = "largest rock
+big ass rock
+most expensivest"
+price = 70
